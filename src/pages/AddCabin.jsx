@@ -1,20 +1,20 @@
-import CreateCabinForm from '../features/cabins/CreateCabinForm';
+import CreateHotelForm from '../features/hotels/CreateHotelForm';
 
 import Button from '../ui/Button';
 import Modal from '../ui/Modal';
 
-function AddCabin() {
+function AddHotel() {
 	return (
 		<div>
 			<Modal>
-				<Modal.Open opens={'cabin-form'}>
-					<Button>Add new cabin</Button>
+				<Modal.Open opens={'hotel-form'}>
+					<Button>Add new hotel</Button>
 				</Modal.Open>
-				<Modal.Window name={'cabin-form'}>
-					<CreateCabinForm />
+				<Modal.Window name={'hotel-form'}>
+					<CreateHotelForm />
 				</Modal.Window>
 			</Modal>
 		</div>
 	);
 }
-export default AddCabin;
+export default AddHotel;
