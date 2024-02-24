@@ -35,6 +35,7 @@ const StyledList = styled.ul`
 	top: 32px !important;
 	right: 0 !important;
 	overflow: visible;
+	width: max-content;
 
 	background-color: var(--color-grey-0);
 	box-shadow: var(--shadow-md);
