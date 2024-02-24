@@ -76,7 +76,7 @@ function HotelRow({ hotel }) {
 
 	return (
 		<Table.Row>
-			<Img src={image} />
+			<Img src={image} alt={`Image of hotel-${name}`} />
 			<Hotel>{name}</Hotel>
 			<div>Fits up to {maxCapacity} guests</div>
 			<Price>{formatCurrency(regularPrice)}</Price>
