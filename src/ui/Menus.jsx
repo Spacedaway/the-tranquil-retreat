@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from 'react';
-import { createPortal } from 'react-dom';
 import { HiEllipsisVertical } from 'react-icons/hi2';
 import styled from 'styled-components';
 import { useOutsideClick } from '../hooks/useOutsideClick';
@@ -113,13 +112,6 @@ function List({ id, children }) {
 	const ref = useOutsideClick(close);
 
 	if (openId !== id) return null;
-
-	// return createPortal(
-	// 	<StyledList position={position} ref={ref}>
-	// 		{children}
-	// 	</StyledList>,
-	// 	document.body
-	// );
 
 	return (
 		<StyledList position={position} ref={ref}>
