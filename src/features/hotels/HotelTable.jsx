@@ -15,12 +15,21 @@ function HotelTable() {
 
 	const filterValue = searchParams.get('discount') || 'all';
 
+	// FILTER
 	let filteredHotels;
 	if (filterValue === 'all') filteredHotels = hotels;
 	if (filterValue === 'no-discount')
 		filteredHotels = hotels.filter((hotel) => hotel.discount === 0);
 	if (filterValue === 'with-discount')
 		filteredHotels = hotels.filter((hotel) => hotel.discount > 0);
+
+	// SORT
+	const sortBy = searchParams.get('sortBy') || 'name-asc';
+	const [field, direction] = sortBy.split('-');
+	const modifier = direction === 'asc' ? 1 : -1;
+	const sortedHotels = filteredHotels.sort(
+		(a, b) => (a[field] - b[field]) * modifier
+	);
 
 	return (
 		<Menus>
@@ -35,7 +44,7 @@ function HotelTable() {
 				</Table.Header>
 
 				<Table.Body
-					data={filteredHotels}
+					data={sortedHotels}
 					render={(hotel) => <HotelRow hotel={hotel} key={hotel.id} />}
 				/>
 			</Table>
