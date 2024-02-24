@@ -5,6 +5,7 @@ import HotelRow from './HotelRow';
 import { useHotels } from './useHotels';
 import Table from '../../ui/Table';
 import Menus from '../../ui/Menus';
+import { useSearchParams } from 'react-router-dom';
 
 const TableHeader = styled.header`
 	display: grid;
@@ -23,8 +24,18 @@ const TableHeader = styled.header`
 
 function HotelTable() {
 	const { isLoading, hotels } = useHotels();
+	const [searchParams] = useSearchParams();
 
 	if (isLoading) return <Spinner />;
+
+	const filterValue = searchParams.get('discount') || 'all';
+
+	let filteredHotels;
+	if (filterValue === 'all') filteredHotels = hotels;
+	if (filterValue === 'no-discount')
+		filteredHotels = hotels.filter((hotel) => hotel.discount === 0);
+	if (filterValue === 'with-discount')
+		filteredHotels = hotels.filter((hotel) => hotel.discount > 0);
 
 	return (
 		<Menus>
@@ -39,7 +50,7 @@ function HotelTable() {
 				</Table.Header>
 
 				<Table.Body
-					data={hotels}
+					data={filteredHotels}
 					render={(hotel) => <HotelRow hotel={hotel} key={hotel.id} />}
 				/>
 			</Table>
