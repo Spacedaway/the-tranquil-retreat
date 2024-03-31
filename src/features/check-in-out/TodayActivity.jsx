@@ -1,13 +1,12 @@
 import styled from 'styled-components';
-import { box } from 'styles/styles';
-import Heading from 'ui/Heading';
-import Row from 'ui/Row';
-import Spinner from 'ui/Spinner';
-import TodayItem from '../dashboard/TodayItem';
-import { useActivityTodayStays } from './useActivityTodayStays';
+
+import Heading from '../../ui/Heading';
+import Row from '../../ui/Row';
+import Spinner from '../../ui/Spinner';
+import TodayItem from './TodayItem';
+import { useTodayActivity } from './useTodayActivity';
 
 const StyledToday = styled.div`
-	${box}
 	padding: 3.2rem;
 	display: flex;
 	flex-direction: column;
@@ -35,8 +34,8 @@ const NoActivity = styled.p`
 	margin-top: 0.8rem;
 `;
 
-function Today() {
-	const { isLoading, stays } = useActivityTodayStays();
+function TodayActivity() {
+	const { isLoading, stays } = useTodayActivity();
 
 	return (
 		<StyledToday>
@@ -63,43 +62,4 @@ function Today() {
 	);
 }
 
-export default Today;
-
-const OLDdata = [
-	{
-		id: 1,
-		status: 'unconfirmed',
-		guests: { fullName: 'Jonas Schmedtmann' },
-		numNights: 6,
-	},
-	{
-		id: 2,
-		status: 'unconfirmed',
-		guests: { fullName: 'Steven Miller' },
-		numNights: 1,
-	},
-	{
-		id: 3,
-		status: 'checked-in',
-		guests: { fullName: 'John Smith' },
-		numNights: 3,
-	},
-	{
-		id: 4,
-		status: 'unconfirmed',
-		guests: { fullName: 'Marta Schmedtmann' },
-		numNights: 14,
-	},
-	{
-		id: 5,
-		status: 'checked-in',
-		guests: { fullName: 'Miguel Silva' },
-		numNights: 5,
-	},
-	{
-		id: 6,
-		status: 'checked-in',
-		guests: { fullName: 'Mary Williams' },
-		numNights: 4,
-	},
-];
+export default TodayActivity;
