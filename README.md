@@ -1,8 +1,28 @@
-# React + Vite
+# The Tranquil Retreat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A hotel booking platform with a sophisticated booking system and user authentication.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Project Overview](#project-overview)
+- [Technologies](#technologies)
+- [Screenshots](#screenshots)
+- [Demo](#demo)
+
+## Project Overview
+
+“The Tranquil Retreat” is a hotel booking platform built using React.js and Supabase. It features a robust booking system and user authentication. Users can browse hotels, view details, and check bookings. User authentication ensures security and personalizes the user experience.
+
+## Technologies
+
+- React.js
+- Node.js
+- Recharts
+- Styled Components
+- Supabase
+
+## Demo
+
+![Login Page](https://raw.githubusercontent.com/Spacedaway/the-tranquil-retreat/main/resources/login.png)
+![Dashboard Page](https://raw.githubusercontent.com/Spacedaway/the-tranquil-retreat/main/resources/dashboard.png)
+![Bookings Page](https://raw.githubusercontent.com/Spacedaway/the-tranquil-retreat/main/resources/bookings.png)
