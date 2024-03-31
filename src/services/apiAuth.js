@@ -7,8 +7,20 @@ const login = async ({ email, password }) => {
 	});
 
 	if (error) throw new Error(error.message);
-	console.log(data);
+
 	return data;
 };
 
-export { login };
+const getCurrentUser = async () => {
+	const { data: session } = await supabase.auth.getSession();
+
+	if (!session.session) return null;
+
+	const { data, error } = await supabase.auth.getUser();
+
+	if (error) throw new Error(error.message);
+
+	return data?.user;
+};
+
+export { login, getCurrentUser };
